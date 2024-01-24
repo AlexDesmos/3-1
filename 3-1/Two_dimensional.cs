@@ -20,9 +20,9 @@ namespace _3_1
         {
             int array_sum = 0;
             int[,] array = new int[length, width];
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < array.GetLength(0); i++)
             {
-                for (int j = 0; j < width; j++)
+                for (int j = 0; j < array.GetLength(1); j++)
                 {
                     Console.WriteLine($"X: {j} Y: {i}");
                     int input = int.Parse(Console.ReadLine());
@@ -38,9 +38,9 @@ namespace _3_1
         {
             int array_sum = 0;
             int[,] array = new int[length, width];
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < array.GetLength(0); i++)
             {
-                for (int j = 0; j < width; j++)
+                for (int j = 0; j < array.GetLength(1); j++)
                 {
 
                     array[i, j] = rnd.Next(-100, 100);
@@ -54,21 +54,34 @@ namespace _3_1
         static void second(int[,] array)
         {
             Console.WriteLine("Second:");
-            for (int i = 0; i < array.GetLength(1); i++)
+            for (int i = 0; i < array.GetLength(0); i++)
             {
-                for (int j = 0; j < array.GetLength(0); j++)
+                for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    Console.WriteLine(array[i, j] + "\t");
+                    Console.Write(array[i, j] + "\t");
                 }
+                Console.WriteLine();
             }
-            for (int i = array.GetLength(1); i > 0; i--)
+            Console.WriteLine();
+            for (int i = 0; i < array.GetLength(0); i++)
             {
-                for (int j = array.GetLength(0); j > 0; j--)
+                if (i + 1 % 2 == 0)
                 {
-                    if (i % 2 == 0)
+
+
+                    for (int j = array.GetLength(1) - 1; j > 0; j--)
                     {
-                        Console.WriteLine(array[i, j] + "\t");
+                        Console.Write(array[i, j] + "\t");
                     }
+                    Console.WriteLine();
+                }
+                else
+                {
+                    for (int j = 0; j < array.GetLength(1); j++)
+                    {
+                        Console.Write(array[i, j] + "\t");
+                    }
+                    Console.WriteLine();
                 }
             }
         }
