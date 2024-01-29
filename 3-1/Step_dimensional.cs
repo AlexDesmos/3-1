@@ -8,20 +8,23 @@ namespace _3_1
 {
     class Step_dimensional
     {
+        private int[][] array;
         Random rnd = new Random();
+
         public Step_dimensional(bool person, int width)
         {
+            array = new int[width][];
             if (person)
                 UserFill(width);
             else
                 RndFill(width);
         }
-        void UserFill(int width)
+        public void UserFill(int width)
         {
             int line_num = 0;
             int array_num = 0;
             int sum_num = 0;
-            int[][] array = new int[width][];
+            
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 Console.WriteLine("Write length of the line:");
@@ -44,14 +47,15 @@ namespace _3_1
             }
             Console.WriteLine("mid num of the array:");
             Console.WriteLine(sum_num / array_num);
-            trird(array, width);
+            
+            
         }
-        void RndFill(int width)
+        public void RndFill(int width)
         {
             int line_num = 0;
             int array_num = 0;
             int sum_num = 0;
-            int[][] array = new int[width][];
+            
             for (int i = 0; i < array.Length; i++)
             {
                 Console.WriteLine("Write length of the line:");
@@ -73,9 +77,9 @@ namespace _3_1
             }
             Console.WriteLine("mid num of the array:");
             Console.WriteLine(sum_num / array_num);
-            trird(array, width);
+            
         }
-        static void trird(int[][] array, int width)
+        public void trird()
         {
             Console.WriteLine("new array:");
             for (int i = 0; i < array.Length; i++)

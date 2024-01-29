@@ -8,18 +8,20 @@ namespace _3_1
 {
     class Two_dimensional
     {
+        int[,] array;
         Random rnd = new Random();
         public Two_dimensional(bool person, int length, int width)
         {
+            array = new int[length, width];
             if (person)
                 UserFill(length, width);
             else
                 RndFill(length, width);
         }
-        void UserFill(int length, int width)
+        public void UserFill(int length, int width)
         {
             int array_sum = 0;
-            int[,] array = new int[length, width];
+            
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -32,12 +34,12 @@ namespace _3_1
             }
             Console.WriteLine("Mid num of your array:");
             Console.WriteLine(array_sum / (length * width));
-            second(array);
+            
         }
-        void RndFill(int length, int width)
+        public void RndFill(int length, int width)
         {
             int array_sum = 0;
-            int[,] array = new int[length, width];
+            
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -49,9 +51,9 @@ namespace _3_1
             }
             Console.WriteLine("Mid num of your array:");
             Console.WriteLine(array_sum / (length * width));
-            second(array);
+            
         }
-        static void second(int[,] array)
+        public void second()
         {
             Console.WriteLine("Second:");
             for (int i = 0; i < array.GetLength(0); i++)

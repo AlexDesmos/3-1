@@ -9,17 +9,19 @@ namespace _3_1
     class One_dimensional
     {
         Random rnd = new Random();
+        int[] array;
 
         public One_dimensional(bool person, int length)
         {
+            array = new int[length];
             if (person)
                 userFill(length);
             else
                 rndFill(length);
         }
-        void userFill(int length)
+        public void userFill(int length)
         {
-            int[] array = new int[length];
+            
             int array_sum = 0;
             for (int i = 0; i < length; i++)
             {
@@ -29,13 +31,12 @@ namespace _3_1
             }
             Console.WriteLine("Mid num of the array:");
             Console.WriteLine(array_sum / length);
-            second(array, length);
-            third(array);
+            
         }
-        void rndFill(int length)
+        public void rndFill(int length)
         {
             int array_sum = 0;
-            int[] array = new int[length];
+            
             for (int i = 0; i < length; i++)
             {
                 array[i] = rnd.Next(-100, 100);
@@ -44,10 +45,9 @@ namespace _3_1
             }
             Console.WriteLine("Mid num of the array:");
             Console.WriteLine(array_sum / length);
-            second(array, length);
-            third(array);
+            
         }
-        static void second(int[] array, int length)
+        public void second(int length)
         {
             Console.WriteLine("Second:");
             int[] array2 = new int[length];
@@ -60,7 +60,7 @@ namespace _3_1
                 }
             }
         }
-        static void third(int[] array)
+        public void third()
         {
             Console.WriteLine("Trird:");
             int p = 0;

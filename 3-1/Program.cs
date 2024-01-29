@@ -15,6 +15,9 @@ namespace _3_1
                 Console.WriteLine("Write length of your array:");
                 int length = int.Parse(Console.ReadLine());
                 One_dimensional one_dimensional = new One_dimensional(person, length);
+                one_dimensional.second(length);
+                one_dimensional.third();
+
             }
             else if (input == "Two_dimensional")
             {
@@ -24,12 +27,14 @@ namespace _3_1
                 int width = int.Parse(Console.ReadLine());
 
                 Two_dimensional two_dimensional = new Two_dimensional(person, length, width);
+                two_dimensional.second();
             }
             else if(input== "Step_dimensional")
             {
                 Console.WriteLine("Write width of your array:");
                 int width = int.Parse(Console.ReadLine());
                 Step_dimensional step_dimensional = new Step_dimensional(person, width);
+                step_dimensional.trird();
             }
             
         }
