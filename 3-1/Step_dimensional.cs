@@ -18,12 +18,11 @@ namespace _3_1
                 UserFill(width);
             else
                 RndFill(width);
+            getmid();
         }
         public void UserFill(int width)
         {
-            int line_num = 0;
-            int array_num = 0;
-            int sum_num = 0;
+
             
             for (int i = 0; i < array.GetLength(0); i++)
             {
@@ -35,26 +34,17 @@ namespace _3_1
                     
                     Console.WriteLine($"X: {j} Y: {i}");
                     int num = int.Parse(Console.ReadLine());
-                    array[i][j] = num;
-                    sum_num += num;
-                    array_num += 1;
-                    line_num += array[i][j];
-                    
+                    array[i][j] = num; 
                 }
-                line_num = 0;
-                Console.WriteLine($"mid num of the line {i + 1}:");
-                Console.WriteLine(line_num / array[i].Length);
+                
             }
-            Console.WriteLine("mid num of the array:");
-            Console.WriteLine(sum_num / array_num);
+
             
             
         }
         public void RndFill(int width)
         {
-            int line_num = 0;
-            int array_num = 0;
-            int sum_num = 0;
+            
             
             for (int i = 0; i < array.Length; i++)
             {
@@ -62,21 +52,9 @@ namespace _3_1
                 int length = int.Parse(Console.ReadLine());
                 array[i] = new int[length];
                 for (int j = 0; j < length; j++)
-                {
-                    
                     array[i][j] = rnd.Next(-100, 100);
-                    sum_num += array[i][j];
-                    array_num += 1;
-                    line_num += array[i][j];
-                    
-                }
-                Console.WriteLine($"mid num of the line {i}:");
-                Console.WriteLine(line_num / array[i].Length);
-                line_num = 0;
-
             }
-            Console.WriteLine("mid num of the array:");
-            Console.WriteLine(sum_num / array_num);
+            
             
         }
         public void trird()
@@ -100,6 +78,26 @@ namespace _3_1
                 }
                 Console.WriteLine();
             }
+        }
+        public void getmid()
+        {
+            int line_num = 0;
+            int array_num = 0;
+            int sum_num = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    sum_num += array[i][j];
+                    array_num += 1;
+                    line_num += array[i][j];
+                }
+                Console.WriteLine($"mid num of the line {i}:");
+                Console.WriteLine(line_num / array[i].Length);
+                line_num = 0;
+            }
+            Console.WriteLine($"mid num of the array:");
+            Console.WriteLine(sum_num / array_num);
         }
     }
 }

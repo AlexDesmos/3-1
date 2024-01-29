@@ -22,29 +22,27 @@ namespace _3_1
         public void userFill(int length)
         {
             
-            int array_sum = 0;
+            
             for (int i = 0; i < length; i++)
             {
                 Console.WriteLine("Write an element:");
                 array[i] = int.Parse(Console.ReadLine());
-                array_sum += array[i];
+                
             }
-            Console.WriteLine("Mid num of the array:");
-            Console.WriteLine(array_sum / length);
+            
             
         }
         public void rndFill(int length)
         {
-            int array_sum = 0;
+            
             
             for (int i = 0; i < length; i++)
             {
                 array[i] = rnd.Next(-100, 100);
-                array_sum += array[i];
+                
 
             }
-            Console.WriteLine("Mid num of the array:");
-            Console.WriteLine(array_sum / length);
+            
             
         }
         public void second(int length)
@@ -92,6 +90,14 @@ namespace _3_1
             {
                 Console.WriteLine(array3[h]);
             }
+        }
+        public void getmid()
+        {
+            int array_sum = 0;
+            for (int i = 0; i < array.Length; i++)
+                array_sum += array[i];
+            Console.WriteLine("Mid num of the array:");
+            Console.WriteLine(array_sum / array.Length);
         }
     }
 }

@@ -17,10 +17,11 @@ namespace _3_1
                 UserFill(length, width);
             else
                 RndFill(length, width);
+            getmid();
         }
         public void UserFill(int length, int width)
         {
-            int array_sum = 0;
+            
             
             for (int i = 0; i < array.GetLength(0); i++)
             {
@@ -29,16 +30,15 @@ namespace _3_1
                     Console.WriteLine($"X: {j} Y: {i}");
                     int input = int.Parse(Console.ReadLine());
                     array[i, j] = input;
-                    array_sum += input;
+                    
                 }
             }
-            Console.WriteLine("Mid num of your array:");
-            Console.WriteLine(array_sum / (length * width));
+            
             
         }
         public void RndFill(int length, int width)
         {
-            int array_sum = 0;
+            
             
             for (int i = 0; i < array.GetLength(0); i++)
             {
@@ -46,11 +46,10 @@ namespace _3_1
                 {
 
                     array[i, j] = rnd.Next(-100, 100);
-                    array_sum += array[i, j];
+                    
                 }
             }
-            Console.WriteLine("Mid num of your array:");
-            Console.WriteLine(array_sum / (length * width));
+            
             
         }
         public void second()
@@ -86,6 +85,19 @@ namespace _3_1
                     Console.WriteLine();
                 }
             }
+        }
+        public void getmid()
+        {
+            int array_sum = 0;
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    array_sum += array[i, j];
+                }
+            }
+            Console.WriteLine("Mid num of your array:");
+            Console.WriteLine(array_sum / (array.GetLength(0) * array.GetLength(1)));
         }
     }
 }
