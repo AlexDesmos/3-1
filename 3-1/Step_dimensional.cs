@@ -11,8 +11,10 @@ namespace _3_1
         private int[][] array;
         Random rnd = new Random();
 
-        public Step_dimensional(bool person, int width)
+        public Step_dimensional(bool person, int width, bool rec)
         {
+            if (rec)    
+                recreation();
             array = new int[width][];
             if (person)
                 UserFill(width);
@@ -98,6 +100,26 @@ namespace _3_1
             }
             Console.WriteLine($"mid num of the array:");
             Console.WriteLine(sum_num / array_num);
+        }
+        public void recreation()
+        {
+            Console.WriteLine("Write width of your array:");
+            int width = int.Parse(Console.ReadLine());
+            array = new int[width][];
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                Console.WriteLine("Write length of the line:");
+                int length = int.Parse(Console.ReadLine());
+                array[i] = new int[length];
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+
+                    Console.WriteLine($"X: {j} Y: {i}");
+                    int num = int.Parse(Console.ReadLine());
+                    array[i][j] = num;
+                }
+
+            }
         }
     }
 }

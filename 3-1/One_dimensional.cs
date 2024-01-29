@@ -11,13 +11,16 @@ namespace _3_1
         Random rnd = new Random();
         int[] array;
 
-        public One_dimensional(bool person, int length)
+        public One_dimensional(bool person, int length, bool rec)
         {
             array = new int[length];
+            if (rec)
+                recreation();
             if (person)
                 userFill(length);
             else
                 rndFill(length);
+            
         }
         public void userFill(int length)
         {
@@ -98,6 +101,18 @@ namespace _3_1
                 array_sum += array[i];
             Console.WriteLine("Mid num of the array:");
             Console.WriteLine(array_sum / array.Length);
+        }
+        public void recreation()
+        {
+            Console.WriteLine("Write length of your array:");
+            int length = int.Parse(Console.ReadLine());
+            array = new int[length];
+            for (int i = 0; i < length; i++)
+            {
+                Console.WriteLine("Write an element:");
+                array[i] = int.Parse(Console.ReadLine());
+
+            }
         }
     }
 }

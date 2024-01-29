@@ -14,7 +14,11 @@ namespace _3_1
             {
                 Console.WriteLine("Write length of your array:");
                 int length = int.Parse(Console.ReadLine());
-                One_dimensional one_dimensional = new One_dimensional(person, length);
+                Console.WriteLine("Do you want to remake your array:");
+                bool rec = bool.Parse(Console.ReadLine());
+                One_dimensional one_dimensional = new One_dimensional(person, length, rec);
+
+
                 one_dimensional.second(length);
                 one_dimensional.third();
 
@@ -25,15 +29,18 @@ namespace _3_1
                 int length = int.Parse(Console.ReadLine());
                 Console.WriteLine("Write width of your array:");
                 int width = int.Parse(Console.ReadLine());
-
-                Two_dimensional two_dimensional = new Two_dimensional(person, length, width);
+                Console.WriteLine("Do you want to remake your array:");
+                bool rec = bool.Parse(Console.ReadLine());
+                Two_dimensional two_dimensional = new Two_dimensional(person, length, width, rec);
                 two_dimensional.second();
             }
-            else if(input== "Step_dimensional")
+            else if(input == "Step_dimensional")
             {
                 Console.WriteLine("Write width of your array:");
                 int width = int.Parse(Console.ReadLine());
-                Step_dimensional step_dimensional = new Step_dimensional(person, width);
+                Console.WriteLine("Do you want to remake your array:");
+                bool rec = bool.Parse(Console.ReadLine());
+                Step_dimensional step_dimensional = new Step_dimensional(person, width, rec);
                 step_dimensional.trird();
             }
             

@@ -10,9 +10,11 @@ namespace _3_1
     {
         int[,] array;
         Random rnd = new Random();
-        public Two_dimensional(bool person, int length, int width)
+        public Two_dimensional(bool person, int length, int width, bool rec)
         {
             array = new int[length, width];
+            if (rec)
+                recreation();
             if (person)
                 UserFill(length, width);
             else
@@ -98,6 +100,24 @@ namespace _3_1
             }
             Console.WriteLine("Mid num of your array:");
             Console.WriteLine(array_sum / (array.GetLength(0) * array.GetLength(1)));
+        }
+        public void recreation()
+        {
+            Console.WriteLine("Write length of your array:");
+            int length = int.Parse(Console.ReadLine());
+            Console.WriteLine("Write width of your array:");
+            int width = int.Parse(Console.ReadLine());
+            array = new int[length, width];
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    Console.WriteLine($"X: {j} Y: {i}");
+                    int input = int.Parse(Console.ReadLine());
+                    array[i, j] = input;
+
+                }
+            }
         }
     }
 }
