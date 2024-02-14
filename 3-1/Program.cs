@@ -14,13 +14,16 @@ namespace _3_1
             {
                 Console.WriteLine("Write length of your array:");
                 int length = int.Parse(Console.ReadLine());
-                Console.WriteLine("Do you want to remake your array:");
-                bool rec = bool.Parse(Console.ReadLine());
-                One_dimensional one_dimensional = new One_dimensional(person, length, rec);
+                
+                One_dimensional one_dimensional = new One_dimensional(person, length);
 
 
                 one_dimensional.second(length);
                 one_dimensional.third();
+
+                Console.WriteLine("Write length of your array:");
+                length = int.Parse(Console.ReadLine());
+                one_dimensional.recreation(person, length);
 
             }
             else if (input == "Two_dimensional")
@@ -29,19 +32,25 @@ namespace _3_1
                 int length = int.Parse(Console.ReadLine());
                 Console.WriteLine("Write width of your array:");
                 int width = int.Parse(Console.ReadLine());
-                Console.WriteLine("Do you want to remake your array:");
-                bool rec = bool.Parse(Console.ReadLine());
-                Two_dimensional two_dimensional = new Two_dimensional(person, length, width, rec);
+                
+                Two_dimensional two_dimensional = new Two_dimensional(person, length, width);
                 two_dimensional.second();
+                Console.WriteLine("Write length of your array:");
+                length = int.Parse(Console.ReadLine());
+                Console.WriteLine("Write width of your array:");
+                width = int.Parse(Console.ReadLine());
+                two_dimensional.recreation(person, length, width);
             }
             else if(input == "Step_dimensional")
             {
                 Console.WriteLine("Write width of your array:");
                 int width = int.Parse(Console.ReadLine());
-                Console.WriteLine("Do you want to remake your array:");
-                bool rec = bool.Parse(Console.ReadLine());
-                Step_dimensional step_dimensional = new Step_dimensional(person, width, rec);
+                
+                Step_dimensional step_dimensional = new Step_dimensional(person, width);
                 step_dimensional.trird();
+                Console.WriteLine("Write width of your array:");
+                width = int.Parse(Console.ReadLine());
+                step_dimensional.recreation(person, width);
             }
             
         }

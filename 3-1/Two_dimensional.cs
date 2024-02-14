@@ -6,20 +6,24 @@ using System.Threading.Tasks;
 
 namespace _3_1
 {
-    class Two_dimensional
+    public class Two_dimensional
     {
         int[,] array;
         Random rnd = new Random();
-        public Two_dimensional(bool person, int length, int width, bool rec)
+        public Two_dimensional(bool person, int length, int width)
+        {
+            Initialization(person, length, width);
+        }
+        private void Initialization(bool person,int length, int width)
         {
             array = new int[length, width];
-            if (rec)
-                recreation();
+            
             if (person)
                 UserFill(length, width);
             else
                 RndFill(length, width);
             getmid();
+            print();
         }
         public void UserFill(int length, int width)
         {
@@ -101,21 +105,18 @@ namespace _3_1
             Console.WriteLine("Mid num of your array:");
             Console.WriteLine(array_sum / (array.GetLength(0) * array.GetLength(1)));
         }
-        public void recreation()
+        public void recreation(bool person, int length, int width)
         {
-            Console.WriteLine("Write length of your array:");
-            int length = int.Parse(Console.ReadLine());
-            Console.WriteLine("Write width of your array:");
-            int width = int.Parse(Console.ReadLine());
-            array = new int[length, width];
+            Initialization(person, length, width);
+        }
+        public void print()
+        {
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    Console.WriteLine($"X: {j} Y: {i}");
-                    int input = int.Parse(Console.ReadLine());
-                    array[i, j] = input;
 
+                    Console.Write(array[i, j] + "\t");
                 }
             }
         }

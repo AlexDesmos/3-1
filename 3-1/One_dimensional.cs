@@ -6,21 +6,26 @@ using System.Threading.Tasks;
 
 namespace _3_1
 {
-    class One_dimensional
+    public class One_dimensional
     {
         Random rnd = new Random();
         int[] array;
 
-        public One_dimensional(bool person, int length, bool rec)
+        public One_dimensional(bool person, int length)
         {
-            array = new int[length];
-            if (rec)
-                recreation();
+            Initialization(person, length);
+            
+        }
+        private void Initialization(bool person, int length)
+        {
+            
+                
             if (person)
                 userFill(length);
             else
                 rndFill(length);
-            
+
+            print();
         }
         public void userFill(int length)
         {
@@ -102,16 +107,15 @@ namespace _3_1
             Console.WriteLine("Mid num of the array:");
             Console.WriteLine(array_sum / array.Length);
         }
-        public void recreation()
+        public void recreation(bool person, int length)
         {
-            Console.WriteLine("Write length of your array:");
-            int length = int.Parse(Console.ReadLine());
-            array = new int[length];
-            for (int i = 0; i < length; i++)
+            Initialization(person, length);
+        }
+        public void print()
+        {
+            for (int i = 0; i < array.Length; i++)
             {
-                Console.WriteLine("Write an element:");
-                array[i] = int.Parse(Console.ReadLine());
-
+                Console.Write(array[i] + "\t");
             }
         }
     }

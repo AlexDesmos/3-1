@@ -6,21 +6,25 @@ using System.Threading.Tasks;
 
 namespace _3_1
 {
-    class Step_dimensional
+    public class Step_dimensional
     {
         private int[][] array;
         Random rnd = new Random();
 
-        public Step_dimensional(bool person, int width, bool rec)
+        public Step_dimensional(bool person, int width)
         {
-            if (rec)    
-                recreation();
+            Initialization(person, width);
+        }
+        private void Initialization(bool person, int width)
+        {
+            
             array = new int[width][];
             if (person)
                 UserFill(width);
             else
                 RndFill(width);
             getmid();
+            print();
         }
         public void UserFill(int width)
         {
@@ -101,24 +105,19 @@ namespace _3_1
             Console.WriteLine($"mid num of the array:");
             Console.WriteLine(sum_num / array_num);
         }
-        public void recreation()
+        public void recreation(bool person, int width)
         {
-            Console.WriteLine("Write width of your array:");
-            int width = int.Parse(Console.ReadLine());
-            array = new int[width][];
-            for (int i = 0; i < array.GetLength(0); i++)
+            Initialization(person, width);
+        }
+        public void print()
+        {
+            for (int i = 0; i < array.Length; i++)
             {
-                Console.WriteLine("Write length of the line:");
-                int length = int.Parse(Console.ReadLine());
-                array[i] = new int[length];
-                for (int j = 0; j < array.GetLength(1); j++)
+                for (int j = 0; j < array[i].Length; j++)
                 {
 
-                    Console.WriteLine($"X: {j} Y: {i}");
-                    int num = int.Parse(Console.ReadLine());
-                    array[i][j] = num;
+                    Console.Write(array[i][j] + "\t");
                 }
-
             }
         }
     }
