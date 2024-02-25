@@ -9,7 +9,7 @@ namespace _3_1
     public class Step_dimensional
     {
         private int[][] array;
-        Random rnd = new Random();
+        static private Random rnd = new Random();
 
         public Step_dimensional(bool person, int width)
         {

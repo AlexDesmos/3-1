@@ -8,8 +8,8 @@ namespace _3_1
 {
     public class One_dimensional
     {
-        Random rnd = new Random();
-        int[] array;
+        static private Random rnd = new Random();
+        private int[] array;
 
         public One_dimensional(bool person, int length)
         {
